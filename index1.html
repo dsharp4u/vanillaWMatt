@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" /> 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+   <title>Stage1 WeatherApp</title>
+</head>
+<body>
+    <div class="container">
+      <div class="weather-app-wrapper">
+      <!--wrapper around the container, ends at footer-->
+      <div class="weather app">
+        <div class="overview"></div>
+        <h1>New York</h1>
+        <ul>
+            <li>Wednesday 05:00
+            </li>
+            <li>Clear
+            </li>
+        </ul>
+        </div>
+    <div class="row">
+    <div class="col-6">
+      <div class="clearfix weather-temperature">
+        <img 
+        src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+        alt="Clear"
+        class="float-left"
+        />
+        <div class="float-left">
+          <strong>12</strong><span class="units">°C | <a href="#">°F</a>
+      </span>
+      </div>
+      </div>
+        </div>
+        <div class="col-6">
+          <ul>
+              <li>
+               Precipitation: 0%     
+                </li>
+              <li>
+              Humidity: 73%        
+            </li>
+            <li>
+            Wind: 2 km/h
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+     </div>
+    <small>
+      <a href="https://github.com/dsharp4u/vanillaWMatt" 
+      target="_blank">
+      Open-source code</a> 
+      by Deb Sharp
+  </small> 
+  </div>
+    </div>
+    <script src="src/app.js"></script>
+</body>
+</html>
