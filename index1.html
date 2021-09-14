@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" /> 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,33 +11,37 @@
       crossorigin="anonymous"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <link rel="stylesheet" href="style.css" /> 
    <title>Stage1 WeatherApp</title>
 </head>
 <body>
     <div class="container">
       <div class="weather-app-wrapper">
       <!--wrapper around the container, ends at footer-->
-      <div class="weather-app">
-        <div class="overview"></div>
-        <h1>New York</h1>
-        <ul>
-            <li>Wednesday 05:00
-            </li>
-            <li>Clear
+        <div class="weather-app">
+          <div class="overview">
+            <h1 id="city"></h1>
+        <!--<h1> New York</h1>-->
+            <ul>
+            <li id="date">  <!--Wednesday 05:00-->
+              <li>Last update: <span id="date"></span>
+              </li>
+              <li id="description">
             </li>
         </ul>
-        </div>
+      </div> 
     <div class="row">
     <div class="col-6">
-      <div class="clearfix weather-temperature">
+      <div class="clearfix weather-temperature"> <!--clearfix aligns next to ea other wea-temp allows for img selection-->
         <img 
         src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
         alt="Clear"
         class="float-left"
         />
         <div class="float-left">
-          <strong>12</strong><span class="units">°C | <a href="#">°F</a>
-      </span>
+          <!--<strong>12</strong>-->
+         <strong id="temperature"></strong><span class="units">°C | <a 
+          href="#"></a>°F</span>
       </div>
       </div>
         </div>
@@ -57,14 +60,15 @@
         </div>
     </div>
     </div>
-     </div>
-    <small>
+  <small>
       <a href="https://github.com/dsharp4u/vanillaWMatt" 
       target="_blank">
       Open-source code</a> 
       by Deb Sharp
-  </small> 
+  </small>   
   </div>
+    </div>
+     </div>
     </div>
     <script src="app.js"></script>
 </body>
