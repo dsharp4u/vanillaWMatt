@@ -17,12 +17,21 @@
 <body>
     <div class="container">
       <div class="weather-app-wrapper">
-      <!--wrapper around the container, ends at footer-->
-        <div class="weather-app">
-          <div class="overview">
-            <h1 id="city"></h1>
-        <!--<h1> New York</h1>-->
-            <ul>
+        <div class="weather-app">  <!--wrapper around the container, ends at footer-->
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input type="search" placeholder=" Enter a city..." class="form-control" id="city-input"
+            autocomplete="off" />
+            </div>
+            <div class="col-3">
+              <input type="submit" value="search" class="btn btn-primary w-100"/>
+            </div>
+          </div>
+        </form>
+        <div class="overview">
+          <h1 id="city"></h1>  <!--<h1> New York</h1>-->
+           <ul>
             <li id="date">  <!--Wednesday 05:00-->
               <li>Last update: <span id="date"></span>
               </li>
@@ -34,14 +43,11 @@
     <div class="col-6">
       <div class="clearfix weather-temperature"> <!--clearfix aligns next to ea other wea-temp allows for img selection-->
         <img 
-        src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-        alt="Clear"
-        class="float-left"
-        />
+        src="" alt="Clear" id="icon" class="float-left" />
         <div class="float-left">
           <!--<strong>12</strong>-->
          <strong id="temperature"></strong><span class="units">°C | <a 
-          href="#"></a>°F</span>
+          href="#">°F</a></span>
       </div>
       </div>
         </div>
@@ -68,8 +74,7 @@
   </small>   
   </div>
     </div>
-     </div>
-    </div>
-    <script src="app.js"></script>
+  </div>
+   <script src="app.js"></script>
 </body>
 </html>
