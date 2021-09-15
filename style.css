@@ -33,6 +33,7 @@ li:first-letter {
   max-width: 600px;
   margin: 30px auto;
 }
+
 .weather-app {
   padding: 20px;
   border: 1px solid #dadde1;
@@ -60,6 +61,10 @@ li:first-letter {
   position: relative;
   font-size: 16px;
   top: -34px;
+}
+
+.weather-temperature .units a {
+  text-decoration: none;
 }
 
 .weather-temperature .active {
