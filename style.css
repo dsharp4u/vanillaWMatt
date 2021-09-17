@@ -71,3 +71,22 @@ li:first-letter {
   color: rgb(33, 33, 33);
   cursor: default;
 }
+
+.advanced-forcast {
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+
+.adv-weather-forcast-date {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.adv-weather-forcast-temp-min {
+  opacity: 0.5;
+}
+
+.adv-weather-forcast-temps {
+  font-size: 10px;
+}
