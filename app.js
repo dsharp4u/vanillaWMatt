@@ -24,6 +24,29 @@ function formatDate(timestamp) {
   //return "Friday 05:00";
 }
 
+//function displayadvForecast() {
+  //let advforecastElement = document.querySelector("#adv-forecast");
+
+  //let advforecastHTML = "";
+  //advforecastHTML = `
+  //<div class="row">
+   // <div class="col-2">
+    // <div class="adv-weather-forcast-date">Sat</div>
+     // <img 
+      //  src="http://openweathermap.org/img/wn/04d@2x.png" 
+       // alt="" 
+        //width="40px" 
+      ///>
+      // <div class="adv-weather-forecast-temps">
+       // <span class="adv-weather-forecast-temp-max">18°</span>
+        // <span class="adv-weather-forecast-temp-min">12° </span>
+         //</div>
+        //<div> 
+       //</div>
+   // `;
+  //advforecastElement.innerHTML = advforecastHTML;
+//}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -92,3 +115,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("New York");
+displayadvForecast();

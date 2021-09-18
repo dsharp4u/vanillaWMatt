@@ -72,21 +72,21 @@ li:first-letter {
   cursor: default;
 }
 
-.advanced-forcast {
+.advanced-forecast {
   margin-top: 20px;
   text-align: center;
   color: black;
 }
 
-.adv-weather-forcast-date {
-  font-size: 14px;
+.adv-weather-forecast-date {
+  font-size: 12px;
   opacity: 0.5;
 }
 
-.adv-weather-forcast-temp-min {
+.adv-weather-forecast-temp-min {
   opacity: 0.5;
 }
 
-.adv-weather-forcast-temps {
-  font-size: 10px;
+.adv-weather-forecast-temps {
+  font-size: 12px;
 }
