@@ -24,28 +24,41 @@ function formatDate(timestamp) {
   //return "Friday 05:00";
 }
 
-//function displayadvForecast() {
-  //let advforecastElement = document.querySelector("#adv-forecast");
+function displayadvForecast(response) {
+  //console.log(response.data.daily);
+  let advforecastElement = document.querySelector("#adv-forecast");
 
-  //let advforecastHTML = "";
-  //advforecastHTML = `
-  //<div class="row">
-   // <div class="col-2">
-    // <div class="adv-weather-forcast-date">Sat</div>
-     // <img 
-      //  src="http://openweathermap.org/img/wn/04d@2x.png" 
-       // alt="" 
-        //width="40px" 
-      ///>
-      // <div class="adv-weather-forecast-temps">
-       // <span class="adv-weather-forecast-temp-max">18°</span>
-        // <span class="adv-weather-forecast-temp-min">12° </span>
-         //</div>
-        //<div> 
-       //</div>
-   // `;
-  //advforecastElement.innerHTML = advforecastHTML;
-//}
+  //let days = ["Sat", "Sun", "Mon", "Tue"]; //loop options
+  let days = ["Sun", "Mon", "Tue", "Wed"]; //loop options
+
+  let advforecastHTML = `<div class="row">`; //ceates the fow for the adv date grid
+  days.forEach(function (day) {
+    advforecastHTML =
+      advforecastHTML +
+      `
+      <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <img src="http://openweathermap.org/img/wn/04d@2x.png" 
+        atl=""
+        width="40"  
+      />
+      <div class="adv-weather-forecast-temps"> 
+        <span class="adv-weather-forecast-temp-max">18°</span>
+        <span class="adv-weather-forecast-temp-min">12°</span>
+       </div>
+      </div> 
+     `;
+  });
+
+  advforecastHTML = advforecastHTML + `</div>`; //closes the div of row element
+  advforecastElement.innerHTML = advforecastHTML;
+}
+
+function getadvForcast(coordinates) {
+  let apiKey = "796615aa66205a1254376c90ff6d0826";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayadvForecast);
+}
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -63,13 +76,14 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  //dateElement.innerHTML = "Friday 05:00";
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getadvForcast(response.data.coord);
 }
 
 function search(city) {
@@ -93,7 +107,6 @@ function displayFarenheitTemperature(event) {
   farenheitLink.classList.add("active");
   let farenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(farenheitTemperature);
-  //alert(farenheitTemperature);
 }
 
 function displayCelsiusTemperature(event) {
@@ -115,4 +128,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("New York");
-displayadvForecast();
+//displayadvForecast(); //moved up in the axios call
