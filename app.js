@@ -28,11 +28,15 @@ function formatTimestamp(timestamp) {
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
- }
+  //return day;
+}
 
 function displayadvForecast(response) {
   let advforecast = response.data.daily;
   let advforecastElement = document.querySelector("#adv-forecast");
+
+  //let days = ["Sun", "Mon", "Tue", "Wed", "Thus", "Fri"]; //array loop
+
   let advforecastHTML = `<div class="row">`; //ceates the row for the adv date grid
   advforecast.forEach(function (advforecastDay, index) {
     if (index < 6) {
@@ -101,6 +105,7 @@ function displayTemperature(response) {
 function search(city) {
   let apiKey = "796615aa66205a1254376c90ff6d0826";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
