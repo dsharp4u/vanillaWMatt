@@ -28,15 +28,11 @@ function formatTimestamp(timestamp) {
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
-  //return day;
-}
+ }
 
 function displayadvForecast(response) {
   let advforecast = response.data.daily;
   let advforecastElement = document.querySelector("#adv-forecast");
-
-  //let days = ["Sun", "Mon", "Tue", "Wed", "Thus", "Fri"]; //array loop
-
   let advforecastHTML = `<div class="row">`; //ceates the row for the adv date grid
   advforecast.forEach(function (advforecastDay, index) {
     if (index < 6) {
@@ -118,7 +114,7 @@ function handleSubmit(event) {
 function displayFarenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  //remove the active class from the temp links
+  //remove the active class from the c-link
   celsiusLink.classList.remove("active");
   farenheitLink.classList.add("active");
   let farenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
@@ -127,6 +123,7 @@ function displayFarenheitTemperature(event) {
 
 function displayCelsiusTemperature(event) {
   event.preventDefault;
+  //remove the active class from the f-link
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
