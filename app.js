@@ -123,10 +123,10 @@ function displayFarenheitTemperature(event) {
 
 function displayCelsiusTemperature(event) {
   event.preventDefault;
+  let temperatureElement = document.querySelector("#temperature");
   //remove the active class from the f-link
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 let celsiusTemperature = null;
