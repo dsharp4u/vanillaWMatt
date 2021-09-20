@@ -21,32 +21,49 @@ function formatDate(timestamp) {
   ];
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
-  //return "Friday 05:00";
+}
+
+function formatTimestamp(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+  //return day;
 }
 
 function displayadvForecast(response) {
-  //console.log(response.data.daily);
+  let advforecast = response.data.daily;
   let advforecastElement = document.querySelector("#adv-forecast");
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]; //loop options
+  //let days = ["Sun", "Mon", "Tue", "Wed", "Thus", "Fri"]; //array loop
 
-  let advforecastHTML = `<div class="row">`; //ceates the fow for the adv date grid
-  days.forEach(function (day) {
-    advforecastHTML =
-      advforecastHTML +
-      `
-      <div class="col-2">
-      <div class="weather-forecast-date">${day}</div>
-      <img src="http://openweathermap.org/img/wn/04d@2x.png" 
+  let advforecastHTML = `<div class="row">`; //ceates the row for the adv date grid
+  advforecast.forEach(function (advforecastDay, index) {
+    if (index < 6) {
+      advforecastHTML =
+        advforecastHTML +
+        `
+      <div class="col-2">
+      <div class="adv-weather-forecast-date">${formatTimestamp(
+        advforecastDay.dt
+      )}</div>
+      <img src="http://openweathermap.org/img/wn/${
+        advforecastDay.weather[0].icon
+      }@2x.png" 
         atl=""
         width="40"  
       />
       <div class="adv-weather-forecast-temps"> 
-        <span class="adv-weather-forecast-temp-max">18°</span>
-        <span class="adv-weather-forecast-temp-min">12°</span>
+        <span class="adv-weather-forecast-temp-max">${Math.round(
+          advforecastDay.temp.max
+        )}°</span>
+        <span class="adv-weather-forecast-temp-min">${Math.round(
+          advforecastDay.temp.max
+        )}°</span>
        </div>
       </div> 
-     `;
+     `;
+    }
   });
 
   advforecastHTML = advforecastHTML + `</div>`; //closes the div of row element
@@ -78,7 +95,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
