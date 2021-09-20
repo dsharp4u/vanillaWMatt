@@ -28,8 +28,7 @@ function displayadvForecast(response) {
   //console.log(response.data.daily);
   let advforecastElement = document.querySelector("#adv-forecast");
 
-  //let days = ["Sat", "Sun", "Mon", "Tue"]; //loop options
-  let days = ["Sun", "Mon", "Tue", "Wed"]; //loop options
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]; //loop options
 
   let advforecastHTML = `<div class="row">`; //ceates the fow for the adv date grid
   days.forEach(function (day) {
