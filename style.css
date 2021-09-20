@@ -72,6 +72,9 @@ li:first-letter {
   cursor: default;
 }
 
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
 .advanced-forecast {
   margin-top: 20px;
   text-align: center;
